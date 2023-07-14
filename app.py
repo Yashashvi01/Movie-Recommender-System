@@ -2,6 +2,7 @@ import pickle
 import streamlit as st
 import requests
 import bz2
+import pandas as pd
 
 
 
@@ -30,7 +31,7 @@ def recommend(movie):
 
 
 st.header('Movie Recommender System')
-movies = pickle.load(open('movie_list1.pkl','rb'))
+movies = pd.read_pickle('movie_list1.pkl')
 ifile = bz2.BZ2File("similarity_compressed",'rb')
 similarity = pickle.load(ifile)
 ifile.close()
